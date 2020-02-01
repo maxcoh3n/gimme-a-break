@@ -1,0 +1,31 @@
+GET http://localhost:3000/breakactivities
+
+###
+
+GET http://localhost:3000/breakactivities/5e355b5020c9a006e69d00a4
+
+### 
+
+POST http://localhost:3000/breakactivities
+Content-Type: application/json
+
+{
+    "name": "Shravan playing ultimate frisbee",
+    "description": "Shravan is a lmao",
+    "breakactivityType": "Video"
+}
+
+### 
+
+DELETE http://localhost:3000/breakactivities/5e355aaf1807fa068f9c2ca1
+
+###
+
+PATCH http://localhost:3000/breakactivities/5e355b5020c9a006e69d00a4
+Content-Type: application/json
+
+{
+    "name": "SHRAV",
+    "description": "he is lmao",
+    "breakactivityType": "oi"
+}
