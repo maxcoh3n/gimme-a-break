@@ -14,23 +14,21 @@
                 font-family: "McLaren", cursive
             }
 
-            #motto {
-                float: right;
-                padding: 20px 50px
-            }
-
             .navbar {
                 background-color: #d0d0d0;
                 overflow: hidden;
+                width: 100%;
             }
 
             .navbar a {
                 float: left;
                 color: black;
                 text-align: center;
-                padding: 14px 16px;
+                padding: 20px 15px;
                 text-decoration: none;
                 font-size: 20px;
+                width: 100px;
+                display: block;
             }
 
             .navbar a:hover {
@@ -41,21 +39,72 @@
                 background-color: #0097ff;
                 color: white;
             }
+
+            .navlist {
+                padding: 0;
+                margin: 0 0 0 320px;
+                list-style: none;
+            }
+
+            .navlist li {
+                float: left;
+            }
+
+            .logo img {
+                position: absolute;
+                margin-top: 8px;
+                margin-left: 5px;
+            }
+
+            .menu {
+                display: block;
+                cursor: pointer;
+                margin-top: 12px;
+                margin-right: 35px;
+                float: right;
+            }
+
+            .bar1, .bar2, .bar3 {
+                width: 35px;
+                height: 5px;
+                background-color: black;
+                margin: 6px 0;
+                transition: 0.4s;
+                
+            }
+
+            .change .bar1 {
+            -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+            transform: rotate(-45deg) translate(-9px, 6px) ;
+            }
+
+            .change .bar2 {
+            opacity: 0;
+            }
+
+            .change .bar3 {
+            -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+            transform: rotate(45deg) translate(-8px, -8px) ;
+            }
         </style>
     </head>
-<body class="container">
-    <header>
+    <body class="container">
         <div class="logo">
             <a href="index.html">
-                <img id="logo_pic" src="../static/images/logo_header.png">
+                <img src="../static/images/logo_header.png">
             </a>
-            <h2 id="motto">Productive breaks for productive work</h2>
         </div>
-    </header>
-    <div class="navbar">
-        <a href="index.html">home</a>
-        <a class="active" href="timer.html">timer</a>
-        <a href="about.html">about us</a>
-    </div>
-</body>
+        <nav class="navbar">
+            <ul class="navlist">
+                <li><a href="index.html">home</a></li>
+                <li><a class="active" href="timer.html">timer</a></li>
+                <li><a href="about.html">about us</a></li>
+            </ul>
+        </div>
+        <div class="menu" onclick="">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+    </body>
 </html>
