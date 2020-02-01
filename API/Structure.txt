@@ -1,0 +1,20 @@
+User Collection:
+
+UserID - unique randomly generated string
+Username - chosen by User
+Interval - double set by user
+
+Yoga - Boolean
+Exercise - Boolean
+Entertainment - Boolean
+Education - Boolean
+Yoga - Boolean
+
+Activity Collection
+
+ActivityID - int
+ActivityName - string
+ActivityDescription - string
+Category - String corresponding to categories above
+DurationMin - int
+DurationMax - int
