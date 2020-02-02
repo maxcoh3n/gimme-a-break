@@ -1,6 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <script>
+            
+            let yogaPref = enterPref = educPref = fitPref = false;
+            let Username = "Default User";
+
+            toggleYoga = () => {
+                console.log(yogaPref)
+                yogaPref = !yogaPref
+            }
+            toggleEntertain = () => {
+                enterPref = !enterPref
+            }
+            toggleEducate = () => {
+                educPref = !educPref
+            }
+            toggleFit = () => {
+                fitPref = !fitPref;
+            }
+
+            updateUsername = (textbox) => {
+                Username = document.getElementById(textbox).value;
+            }
+
+
+            postPreferences = () => {
+                let data = {
+                    Username : Username,
+                    Interval : 3600,
+                    Yoga : yogaPref,
+                    Entertainment: enterPref,
+                    Education: educPref,
+                    Fitness: fitPref 
+                }
+                console.log(data);
+
+                // Post data to database
+
+                fetch('http://localhost:3000/users/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                }).then((response) => response.json())
+                    .then((data) => {
+                    console.log('Success:', data);
+                })
+                    .catch((error) => {
+                    console.error('Error:', error);
+                 });
+
+                 window.location.href = 'http://localhost:3000/timer';
+
+            }
+
+
+        </script>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -83,19 +140,18 @@
 
             <div class="desc">Productive breaks for productive work</div>
             <div class="min-header">Start by select break activities</div>
-            <div class="pref">
-                <button class="buttons">Yoga</button>
-                <button class="buttons">Entertainment</button>
-                <button class="buttons">Education</button>
-                <button class="buttons">Fitness</button>
-                <form action="/timer">
-                    <button class="buttons about">
-                        <span>
-                            Next
-                        </span>
-                    </button>
-                </form>
-            </div>
+ 
+                <input type="button" name="Yoga" id="yoga" value="Yoga" class="buttons" onclick="toggleYoga()"></input>
+                <input type="button" name="Entertainment" id="entertainment" value="Entertainment" class="buttons" onclick="toggleEntertain()"></input>
+                <input type="button" name="Education" id="education" value="Education" class="buttons" onclick="toggleEducate()"></input>
+                <input type="button" name="Fitness" id="fitness" value="Fitness" class="buttons" onclick="toggleFit()"></input>
+                <div>
+                    <input id="user_input" type="text" name="Username" placeholder="Username" onchange="updateUsername('user_input')"></input>
+                </div>
+                <div>
+                    <button class="buttons about" onclick="postPreferences()">Next</button>
+                </div>
+            
         </div>
     </body>
 </html>
