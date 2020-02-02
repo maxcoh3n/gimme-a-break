@@ -22,7 +22,8 @@ router.post('/', async (req, res) => {
     const breakactivity = new BreakActivity({
         name: req.body.name,
         description: req.body.description,
-        breakactivityType: req.body.breakactivityType
+        breakactivityType: req.body.breakactivityType,
+        duration: req.body.duration
     })
 
     try {
@@ -43,6 +44,9 @@ router.patch('/:id', getBreakActivity, async (req, res) => {
     }
     if (req.body.breakactivityType != null) {
         res.breakactivity.breakactivityType = req.body.breakactivityType
+    }
+    if (req.body.duration != null) {
+        res.breakactivity.duration = req.body.duration
     }
     
     try {

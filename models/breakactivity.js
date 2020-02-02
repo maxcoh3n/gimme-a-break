@@ -12,6 +12,10 @@ const breakactivitySchema = new mongoose.Schema({
     breakactivityType: {
         type: String,
         required: true
+    },
+    duration: {
+        type: Number,
+        required: true
     }
 })
 
