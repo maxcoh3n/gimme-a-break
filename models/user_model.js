@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema({
     },
     Interval: {
         type: Number,
-        required: true
+        default: 60*60
     },
     Yoga: {
         type: Boolean,
@@ -28,4 +28,4 @@ const UserSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('squirrel', UserSchema);
