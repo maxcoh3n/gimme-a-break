@@ -6,15 +6,57 @@ const BreakActivity = require('../models/breakactivity')
 router.get('/', async (req, res) => {
     try {
         const breakactivities = await BreakActivity.find()
-        res.json(breakactivities)
+        res.json(breakactivities+"hello")
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
 })
 
+// ERROR HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // Getting one
 router.get('/:id', getBreakActivity, (req, res) => {
-    res.json(res.breakactivity)
+    //res.json(res.breakactivity)
+    let a = req.body.Username;
+    const user = {
+        "Username": a,
+        "Interval": a,
+        "Yoga": a,
+        "Entertainment":a,
+        "Education": a,
+        "Fitness": a
+    };
+    // "Username": req.body.Username,
+    // "Interval": req.body.Interval,
+    // "Yoga": req.body.Yoga,
+    // "Entertainment": req.body.Entertainment,
+    // "Education": req.body.Education,
+    // "Fitness": req.body.Fitness
+    res.json(req.body.Username + "t"); //prints undefined - FIND OUT WHY
+})
+
+
+
+router.get('/:name', async (req, res) => {
+    try {
+        const breakactivities = await BreakActivity.find()
+        //res.json(breakactivities); 
+
+        const user = {
+            Username: req.body.Username,
+            Interval: req.body.Interval,
+            Yoga: req.body.Yoga,
+            Entertainment: req.body.Entertainment,
+            Education: req.body.Education,
+            Fitness: req.body.Fitness
+        };
+        //res.json(user);
+
+        const max_Length =  user.Interval/4;
+        console.log("Boop");
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+
 })
 
 // Creating one
