@@ -1,24 +1,39 @@
-const express = require('express')
-const app = express()
-const mongoose = require('mongoose')
-const expressLayouts = require('express-ejs-layouts')
+const express = require("express");
+const app = express();
+const mongoose = require("mongoose");
+const path = require("path");
 
-require('dotenv').config()
+require("dotenv").config();
 
-const indexRouter = require('./routes/index')
-const breakactivitiesRouter = require('./routes/breakactivities')
+const indexRouter = require("./routes/indexRouter");
+const aboutRouter = require("./routes/aboutRouter");
+const timerRouter = require("./routes/timerRouter");
+const breakactivitiesRouter = require("./controllers/activitiesController");
 
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true })
-const db = mongoose.connection
-db.on('error', (error) => console.error(error))
-db.once('open', () => console.log('Connected to database'))
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
-app.use(express.json())
+const db = mongoose.connection;
 
-app.use(expressLayouts)
-app.use(express.static('public'))
+// Display connection details
+db.on("error", error => console.error(error));
+db.once("open", () => console.log("Connected to database"));
 
-app.use('/', indexRouter)
-app.use('/breakactivities', breakactivitiesRouter)
+app.use(express.json());
 
-app.listen(3000, () => console.log('Server started on port 3000'))
+// Require static assets from public folder
+app.use(express.static(path.join(__dirname, "static")));
+
+// Set 'views' directory for any views
+// being rendered res.render()
+app.set("views", path.join(__dirname, "views"));
+
+// Set view engine as EJS
+app.engine("html", require("ejs").renderFile);
+app.set("view engine", "html");
+
+app.use("/home", indexRouter);
+app.use("/about", aboutRouter);
+app.use("/timer", timerRouter);
+app.use("/breakactivities", breakactivitiesRouter);
+
+app.listen(3000, () => console.log("Server started on port 3000"));
