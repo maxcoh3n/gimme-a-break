@@ -1,76 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link rel="stylesheet" href="./css/timer.css" />
-        <link rel="icon" href="./images/hourglass.ico" />
-        <title>gimme a break | Timer</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="../static/css/timer.css">
+        <link rel="icon" href="../static/images/hourglass.ico">
+        <link
+        href="https://fonts.googleapis.com/css?family=McLaren&display=swap"
+        rel="stylesheet"
+        />
+        <title>gimme a break</title>
+        <!--copy/paste to .css-->
+        <style>
+            .container {
+                background-color: #eeeeee;
+                font-family: "McLaren", cursive;
+                display: block;
+            }
+
+            .navbar {
+                background-color: #d0d0d0;
+                overflow: hidden;
+                width: 100%;
+            }
+
+            .navbar a {
+                float: left;
+                color: black;
+                text-align: center;
+                padding: 20px 15px;
+                text-decoration: none;
+                font-size: 20px;
+                width: 100px;
+                display: block;
+            }
+
+            .navbar a:hover {
+                background-color: #b0b0b0;
+            }
+
+            .navbar a.active {
+                background-color: #0097ff;
+                color: white;
+            }
+
+            .navlist {
+                padding: 0;
+                margin: 0 0 0 320px;
+                list-style: none;
+            }
+
+            .navlist li {
+                float: left;
+            }
+
+            .logo img {
+                position: absolute;
+                margin-top: 8px;
+                margin-left: 5px;
+            }
+
+            .dropdown {
+                display: block;
+                cursor: pointer;
+                margin-top: 12px;
+                margin-right: 35px;
+                float: right;
+            }
+
+            .bar1, .bar2, .bar3 {
+                width: 35px;
+                height: 5px;
+                background-color: black;
+                margin: 6px 0;
+                transition: 0.4s;
+                border-radius: 30px;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                right: 0;
+                background-color: #ffffff;
+                min-width: 160px;
+                z-index: 1;
+            }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            form {
+                text-align: center;
+                justify-content: center;
+                display: flex;
+                overflow: auto;
+                margin: 50px auto;
+            }
+            
+            .time-input[type=text]:focus {
+                outline: none;
+                border-color: rgb(29, 29, 29);
+                transition: 0.5s;
+            }
+
+            .time-input {
+                background: none;
+                display: block;
+                text-align: right;
+                padding: 12px 10px;
+                font-size: 50px;
+                width: 70px;
+                border: none;
+                border-bottom: 2px solid rgb(180, 180, 180);
+            }
+
+            #colon {
+                font-size: 50px;
+                border: none;
+                border-bottom: 2px solid rgb(180, 180, 180);
+            }
+
+            #time {
+                text-align: center;
+                margin-top: 2rem;
+                font-size: 10rem;
+            }
+
+            .start {
+                margin-top: 10rem;
+            }
+
+            button {
+                display: block;
+                margin: 1rem auto;
+                width: 10rem;
+                border: 4px solid;
+                background-color: none;
+                padding: 1rem;
+                text-align:center;
+                font-size: 30px;
+            }
+
+            .searchButton {
+                display: block;
+                margin: 0;
+                margin: auto;
+                width: 10rem;
+                border: 4px solid;
+                background-color: none;
+                padding: 1rem;
+                text-align:center;
+                font-size: 30px;
+            }
+        </style>
     </head>
     <body class="container">
         <div class="logo">
             <a href="index.html">
-                <img src="./images/logo_header.png" />
+                <img src="../static/images/logo_header.png">
             </a>
         </div>
         <nav class="navbar">
             <ul class="navlist">
                 <li><a href="./home">home</a></li>
-                <li><a class="active" href="./timer">timer</a></li>
-                <li><a href="./about">about us</a></li>
-                <div class="dropdown">
-                    <button class="drpbtn">
-                        <div class="bar1"></div>
-                        <div class="bar2"></div>
-                        <div class="bar3"></div>
-                    </button>
-                    <div class="dropdown-content">
-                        <h2>TOPICS</h2>
-                        <fieldset class="checkbox-switch">
-                            <legend class="legend-left">yoga</legend>
-                            <input type="checkbox" id="checkbox-1"> 
-                            <label for="checkbox-1" title="Toggle yoga" class="checkbox-right"></label>
-                        </fieldset>
-                        <fieldset class="checkbox-switch">
-                            <legend class="legend-left">entertainment</legend>
-                            <input type="checkbox" id="checkbox-2"> 
-                            <label for="checkbox-2" title="Toggle entertainment" class="checkbox-right"></label>
-                        </fieldset>
-                        <fieldset class="checkbox-switch">
-                            <legend class="legend-left">education</legend>
-                            <input type="checkbox" id="checkbox-3"> 
-                            <label for="checkbox-3" title="Toggle education" class="checkbox-right"></label>
-                        </fieldset>
-                        <fieldset class="checkbox-switch">
-                            <legend class="legend-left">fitness</legend>
-                            <input type="checkbox" id="checkbox-4"> 
-                            <label for="checkbox-4" title="Toggle fitness" class="checkbox-right"></label>
-                        </fieldset>
-                        <option value="" disabled="disabled">─────────────────────────</option>
-                        <h2>MEDIUMS</h2>
-                        <fieldset class="checkbox-switch">
-                            <legend class="legend-left">article</legend>
-                            <input type="checkbox" id="checkbox-5"> 
-                            <label for="checkbox-5" title="Toggle article" class="checkbox-right"></label>
-                        </fieldset>
-                        <fieldset class="checkbox-switch">
-                            <legend class="legend-left">video</legend>
-                            <input type="checkbox" id="checkbox-6"> 
-                            <label for="checkbox-6" title="Toggle fitness" class="checkbox-right"></label>
-                        </fieldset>
-                        <fieldset class="checkbox-switch">
-                            <legend class="legend-left">music</legend>
-                            <input type="checkbox" id="checkbox-6"> 
-                            <label for="checkbox-6" title="Toggle fitness" class="checkbox-right"></label>
-                        </fieldset>
-                    </div>
-                </div>
+                <li><a class="active" href="timer.html">timer</a></li>
+                <li><a href="about.html">about us</a></li>
             </ul>
+            <div class="dropdown">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+                <div class="dropdown-content">
+                    <a>Pref1</a>
+                    <a>Pref2</a>
+                    <a>Pref3</a>
+                </div>
+            </div>
         </nav>
-        <div id="time"><p>time here</p></div>
-        <div class="start">
-            <button type="button" value="start">start</button>
+        
+        <form autocomplete="off">
+            <input type="text" name="time" class="time-input hours" placeholder="00" id="user-hours" maxlength="2">
+            <span id="colon"> : </span>
+            <input type="text" name="time" class="time-input minutes" placeholder="00" id="user-minutes" maxlength="2">
+            <span id="colon"> : </span>
+            <input type="text" name="time" class="time-input seconds" placeholder="00" id="user-seconds" maxlength="2">
+        </form>
+            <button class="searchButton" onclick="startTimer()">Go!</button>
+            <button class="searchButton" onclick="startBreakTimer()">Start Break!</button>
+
+        <div id="time">
+            <span id="hours">00</span> :
+            <span id="minutes">00</span> :
+            <span id="seconds">00</span>
         </div>
+        
+        <script type='text/javascript'>
+            Notification.requestPermission(function(status) {
+                console.log('Notification permission status:', status);
+            });
+
+            let total = 0;
+            let break_total = 0;
+            let once = true;
+            let onceBreak = false;
+            let breakTime = false;
+            let id = 0;
+
+            function startTimer() {
+                while (document.getElementById('user-hours').value.length < 2) {
+                    document.getElementById('user-hours').value = '0' + document.getElementById('user-hours').value;
+                }
+                while (document.getElementById('user-minutes').value.length < 2) {
+                    document.getElementById('user-minutes').value = '0' + document.getElementById('user-minutes').value;
+                }
+                while (document.getElementById('user-seconds').value.length < 2) {
+                    document.getElementById('user-seconds').value = '0' + document.getElementById('user-seconds').value;
+                }
+
+                if (once == true) {
+                    total = +document.getElementById('user-hours').value * 3600 + +document.getElementById('user-minutes').value * 60 + +document.getElementById('user-seconds').value;
+                    break_total = Math.floor(total / 4);
+                    console.log(break_total);
+                    if (total > 0) {
+                        let s = Math.floor(total % 60);
+                        var m = Math.floor(total / 60);
+                        var h = Math.floor(total / 3600);
+
+                        m %= 60;
+                        s %= 60;
+
+                        h = (h < 10) ? "0" + h : h;
+                        m = (m < 10) ? "0" + m : m;
+                        s = (s < 10) ? "0" + s : s;
+
+                        document.getElementById("hours").textContent = h;
+                        document.getElementById("minutes").textContent = m;
+                        document.getElementById("seconds").textContent = s;
+                        id = setInterval(countdown, 1000);
+                    }
+                }
+                once = false;
+            }
+
+            function startBreakTimer() {
+                if (onceBreak == true && breakTime == true) {
+                    total = break_total;
+                    console.log(total);
+                    if (total > 0) {
+                        let s = Math.floor(total % 60);
+                        var m = Math.floor(total / 60);
+                        var h = Math.floor(total / 3600);
+
+                        m %= 60;
+                        s %= 60;
+
+                        h = (h < 10) ? "0" + h : h;
+                        m = (m < 10) ? "0" + m : m;
+                        s = (s < 10) ? "0" + s : s;
+
+                        document.getElementById("hours").textContent = h;
+                        document.getElementById("minutes").textContent = m;
+                        document.getElementById("seconds").textContent = s;
+                        id = setInterval(countdown, 1000);
+                    }
+                    onceBreak = false;
+                }
+            }
+
+            function countdown() {
+                total--;
+                let s = Math.floor(total % 60);
+                var m = Math.floor(total / 60);
+                var h = Math.floor(total / 3600);
+
+                m %= 60;
+                s %= 60;
+
+                h = (h < 10) ? "0" + h : h;
+                m = (m < 10) ? "0" + m : m;
+                s = (s < 10) ? "0" + s : s;
+
+                document.getElementById("hours").textContent = h;
+                document.getElementById("minutes").textContent = m;
+                document.getElementById("seconds").textContent = s;
+
+                if (total <= 0) {
+                    clearInterval(id);
+                    var options = {
+                        body: 'Times up!! Take a break!',
+                        icon: './static/images/icon.png'
+                    };
+
+                    if (breakTime == false) {
+                        onceBreak = true;
+                        breakTime = true;
+                    } else if (breakTime == true) {
+                        options = {
+                            body: 'Times up!! Set another study timer or call it a session!',
+                            icon: './icon.png'
+                        }
+                        once = true;
+                        breakTime = false;
+                    };
+
+                    var notification = new Notification('Gimme A Break', options);
+                }
+                return;
+            }
+        </script>
+
+        <script src="./popup.js"></script>   
     </body>
 </html>
