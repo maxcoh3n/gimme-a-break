@@ -5,9 +5,9 @@
             
             let yogaPref = enterPref = educPref = fitPref = false;
             let Username = "Default User";
+            let id = "";
 
             toggleYoga = () => {
-                console.log(yogaPref)
                 yogaPref = !yogaPref
             }
             toggleEntertain = () => {
@@ -46,13 +46,30 @@
                     body: JSON.stringify(data),
                 }).then((response) => response.json())
                     .then((data) => {
-                    console.log('Success:', data);
+                        document.getElementById("hu").value = data.Username;
+                        document.getElementById("hy").value = data.Yoga;
+                        document.getElementById("hen").value = data.Entertainment;
+                        document.getElementById("hed").value = data.Education;
+                        document.getElementById("hf").value = data.Fitness;
+                        document.getElementById("idForm").submit();
                 })
                     .catch((error) => {
                     console.error('Error:', error);
                  });
 
-                 window.location.href = 'http://localhost:3000/timer';
+
+                //  window.location.href = 'http://localhost:3000/timer';
+
+                 // Go to timer w/ relevant data
+                //  fetch('http://localhost:3000/users/', {
+                //     method: 'GET'
+                // }).then((response) => response.json())
+                //     .then((data) => {
+                //     console.log('Success:', data);
+                // })
+                //     .catch((error) => {
+                //     console.error('Error:', error);
+                //  });
 
             }
 
@@ -152,6 +169,16 @@
                     <button class="buttons about" onclick="postPreferences()">Next</button>
                 </div>
             
+                <!-- hidden form -->
+                <form id="idForm" action="/timer" method="GET">
+                    <input type="hidden" name="user" id="hu" value="empty">
+                    <input type="hidden" name="yoga" id="hy" value="empty">
+                    <input type="hidden" name="enter" id="hen" value="empty">
+                    <input type="hidden" name="educ" id="hed" value="empty">
+                    <input type="hidden" name="fit" id="hf" value="empty">
+                </form>
+
+
         </div>
     </body>
 </html>
