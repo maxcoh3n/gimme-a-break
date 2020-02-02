@@ -4,24 +4,25 @@
 }
 
 .navbar {
-    background-color: #d0d0d0;
+    background-color: #adcbe3;
     overflow: hidden;
     width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
 .navbar a {
     float: left;
     color: black;
     text-align: center;
-    padding: 20px 15px;
     text-decoration: none;
     font-size: 20px;
-    width: 100px;
     display: block;
+    padding: 19.5px;
 }
 
 .navbar li:hover {
-    background-color: #b0b0b0;
+    background-color: #90b0d0;
 }
 
 .navbar a.active {
@@ -30,26 +31,33 @@
 }
 
 .navlist {
+    display: block;
     padding: 0;
-    margin: 0 0 0 320px;
     list-style: none;
+    margin: 0 0 0 68px;
 }
 
 .navlist li {
     float: left;
+    margin: 0;
+}
+
+.logo a {
+    padding: 0;
 }
 
 .logo img {
     position: absolute;
-    margin-top: 8px;
-    margin-left: 5px;
+    margin-top: Spx;
+    height: 4.32rem;
+    padding: 0;
 }
 
 .dropdown {
     display: block;
     margin: 10px 35px 0 0;
     overflow: hidden;
-    float: right;
+    margin-left: auto;
 }
 
 .drpbtn {
@@ -74,7 +82,7 @@
 }
 
 .dropdown-content {
-    display: block;
+    display: none;
     position: absolute;
     top: 76px;
     right: 0;
@@ -99,29 +107,8 @@
     flex-direction: column;
 }
 
-#time {
-    text-align: center;
-    margin-top: 10rem;
-    font-size: 10rem;
-}
-
-.start {
-    margin-top: 10rem;
-}
-
-button {
-    display: block;
-    margin: 1rem auto;
-    width: 10rem;
-    border: 4px solid;
-    background-color: none;
-    padding: 1rem;
-    text-align: center;
-    font-size: 30px;
-}
-
 h2 {
-    padding: 0px 13px;
+    text-align: center;
 }
 
 .checkbox-switch input[type="checkbox"] {
@@ -182,4 +169,37 @@ fieldset {
     padding: 0;
     border: 0;
     padding: 1rem;
+}
+
+#save {
+    text-align: center;
+    background-color: #2a4d69;
+    border-color: #2a4d69;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.25rem;
+    width: 5rem;
+    height: 3rem;
+    padding: 8px 16px;
+}
+
+#time {
+    text-align: center;
+    margin-top: 10rem;
+    font-size: 10rem;
+}
+
+.start {
+    margin-top: 10rem;
+}
+
+button {
+    display: block;
+    margin: 1rem auto;
+    width: 10rem;
+    border: 4px solid;
+    background-color: none;
+    padding: 1rem;
+    text-align: center;
+    font-size: 30px;
 }
