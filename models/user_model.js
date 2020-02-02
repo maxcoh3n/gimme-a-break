@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema({
         type: Boolean,
         default: 1
     },
-    Exercise: {
+    Fitness: {
         type: Boolean,
         default: 1
     }

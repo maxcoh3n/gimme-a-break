@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
         Yoga: req.body.Yoga,
         Entertainment: req.body.Entertainment,
         Education: req.body.Education,
-        Exercize: req.body.Exercize
+        Fitness: req.body.Fitness
     })
 
     try {
@@ -53,8 +53,8 @@ router.patch('/:id', getUser, async (req, res) => {
     if (req.body.Education != null) {
         res.user.Education = req.body.Education
     }
-    if (req.body.Exercize != null) {
-        res.user.Exercize = req.body.Exercize
+    if (req.body.Fitness != null) {
+        res.user.Fitness = req.body.Fitness
     }
     
     try {
