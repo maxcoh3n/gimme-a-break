@@ -9,6 +9,8 @@ const indexRouter = require("./routes/indexRouter");
 const aboutRouter = require("./routes/aboutRouter");
 const timerRouter = require("./routes/timerRouter");
 const breakactivitiesRouter = require("./controllers/activitiesController");
+const usersRouter = require("./controllers/usersController");
+
 
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -35,5 +37,6 @@ app.use("/home", indexRouter);
 app.use("/about", aboutRouter);
 app.use("/timer", timerRouter);
 app.use("/breakactivities", breakactivitiesRouter);
+app.use("/users", usersRouter);
 
 app.listen(3000, () => console.log("Server started on port 3000"));

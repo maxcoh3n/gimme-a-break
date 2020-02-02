@@ -6,24 +6,24 @@ const UserSchema = new mongoose.Schema({
         required: true
     },
     Interval: {
-        type: int,
+        type: Number,
         required: true
     },
     Yoga: {
         type: Boolean,
-        required: true
+        default: 1
     },
     Entertainment: {
         type: Boolean,
-        required: true
+        default: 1
     },
     Education: {
         type: Boolean,
-        required: true
+        default: 1
     },
-    Exercize: {
+    Exercise: {
         type: Boolean,
-        required: true
+        default: 1
     }
 
 });
