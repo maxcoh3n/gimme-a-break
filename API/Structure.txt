@@ -8,7 +8,7 @@ Yoga - Boolean
 Exercise - Boolean
 Entertainment - Boolean
 Education - Boolean
-Yoga - Boolean
+
 
 Activity Collection
 
