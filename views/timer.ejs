@@ -74,9 +74,137 @@
             </div>
         </nav>
         
-        <div id="time"><p>time here</p></div>
-        <div class="start">
-            <button type="button" value="start">start</button>
+        <form autocomplete="off">
+            <input type="text" name="time" class="time-input hours" placeholder="00" id="user-hours" maxlength="2">
+            <span id="colon"> : </span>
+            <input type="text" name="time" class="time-input minutes" placeholder="00" id="user-minutes" maxlength="2">
+            <span id="colon"> : </span>
+            <input type="text" name="time" class="time-input seconds" placeholder="00" id="user-seconds" maxlength="2">
+        </form>
+            <button class="searchButton" onclick="startTimer()">Go!</button>
+            <button class="searchButton" onclick="startBreakTimer()">Start Break!</button>
+
+        <div id="time">
+            <span id="hours">00</span> :
+            <span id="minutes">00</span> :
+            <span id="seconds">00</span>
         </div>
+        
+        <script type='text/javascript'>
+            Notification.requestPermission(function(status) {
+                console.log('Notification permission status:', status);
+            });
+
+            let total = 0;
+            let break_total = 0;
+            let once = true;
+            let onceBreak = false;
+            let breakTime = false;
+            let id = 0;
+
+            function startTimer() {
+                while (document.getElementById('user-hours').value.length < 2) {
+                    document.getElementById('user-hours').value = '0' + document.getElementById('user-hours').value;
+                }
+                while (document.getElementById('user-minutes').value.length < 2) {
+                    document.getElementById('user-minutes').value = '0' + document.getElementById('user-minutes').value;
+                }
+                while (document.getElementById('user-seconds').value.length < 2) {
+                    document.getElementById('user-seconds').value = '0' + document.getElementById('user-seconds').value;
+                }
+
+                if (once == true) {
+                    total = +document.getElementById('user-hours').value * 3600 + +document.getElementById('user-minutes').value * 60 + +document.getElementById('user-seconds').value;
+                    break_total = Math.floor(total / 4);
+                    console.log(break_total);
+                    if (total > 0) {
+                        let s = Math.floor(total % 60);
+                        var m = Math.floor(total / 60);
+                        var h = Math.floor(total / 3600);
+
+                        m %= 60;
+                        s %= 60;
+
+                        h = (h < 10) ? "0" + h : h;
+                        m = (m < 10) ? "0" + m : m;
+                        s = (s < 10) ? "0" + s : s;
+
+                        document.getElementById("hours").textContent = h;
+                        document.getElementById("minutes").textContent = m;
+                        document.getElementById("seconds").textContent = s;
+                        id = setInterval(countdown, 1000);
+                    }
+                }
+                once = false;
+            }
+
+            function startBreakTimer() {
+                if (onceBreak == true && breakTime == true) {
+                    total = break_total;
+                    console.log(total);
+                    if (total > 0) {
+                        let s = Math.floor(total % 60);
+                        var m = Math.floor(total / 60);
+                        var h = Math.floor(total / 3600);
+
+                        m %= 60;
+                        s %= 60;
+
+                        h = (h < 10) ? "0" + h : h;
+                        m = (m < 10) ? "0" + m : m;
+                        s = (s < 10) ? "0" + s : s;
+
+                        document.getElementById("hours").textContent = h;
+                        document.getElementById("minutes").textContent = m;
+                        document.getElementById("seconds").textContent = s;
+                        id = setInterval(countdown, 1000);
+                    }
+                    onceBreak = false;
+                }
+            }
+
+            function countdown() {
+                total--;
+                let s = Math.floor(total % 60);
+                var m = Math.floor(total / 60);
+                var h = Math.floor(total / 3600);
+
+                m %= 60;
+                s %= 60;
+
+                h = (h < 10) ? "0" + h : h;
+                m = (m < 10) ? "0" + m : m;
+                s = (s < 10) ? "0" + s : s;
+
+                document.getElementById("hours").textContent = h;
+                document.getElementById("minutes").textContent = m;
+                document.getElementById("seconds").textContent = s;
+
+                if (total <= 0) {
+                    clearInterval(id);
+                    var options = {
+                        body: 'Times up!! Take a break!',
+                        icon: './static/images/icon.png'
+                    };
+
+                    if (breakTime == false) {
+                        onceBreak = true;
+                        breakTime = true;
+                    } else if (breakTime == true) {
+                        options = {
+                            body: 'Times up!! Set another study timer or call it a session!',
+                            icon: './icon.png'
+                        }
+                        once = true;
+                        breakTime = false;
+                    };
+
+                    var notification = new Notification('Gimme A Break', options);
+                }
+                return;
+            }
+        </script>
+
+        <script src="./popup.js"></script>   
     </body>
 </html>
