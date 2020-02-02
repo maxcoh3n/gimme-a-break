@@ -19,4 +19,4 @@ const breakactivitySchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('BreakActivity', breakactivitySchema)
+module.exports = mongoose.model('breakactivity', breakactivitySchema)
