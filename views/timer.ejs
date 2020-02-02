@@ -5,69 +5,75 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <link rel="stylesheet" href="./css/timer.css" />
-        <link rel="icon" href="./images/hourglass.ico" />
+        <link rel="icon" href="./images/g_logo_favicon.ico" />
+        <link
+            href="https://fonts.googleapis.com/css?family=McLaren&display=swap"
+            rel="stylesheet"
+        />
         <title>gimme a break | Timer</title>
     </head>
     <body class="container">
-        <div class="logo">
-            <a href="index.html">
-                <img src="./images/logo_header.png" />
-            </a>
-        </div>
         <nav class="navbar">
+            <div class="logo">
+                <a href="./home">
+                    <img src="./images/g_logo.png" />
+                </a>
+            </div>
             <ul class="navlist">
                 <li><a href="./home">home</a></li>
                 <li><a class="active" href="./timer">timer</a></li>
                 <li><a href="./about">about us</a></li>
-                <div class="dropdown">
-                    <button class="drpbtn">
-                        <div class="bar1"></div>
-                        <div class="bar2"></div>
-                        <div class="bar3"></div>
-                    </button>
-                    <div class="dropdown-content">
-                        <h2>TOPICS</h2>
-                        <fieldset class="checkbox-switch">
-                            <legend class="legend-left">yoga</legend>
-                            <input type="checkbox" id="checkbox-1"> 
-                            <label for="checkbox-1" title="Toggle yoga" class="checkbox-right"></label>
-                        </fieldset>
-                        <fieldset class="checkbox-switch">
-                            <legend class="legend-left">entertainment</legend>
-                            <input type="checkbox" id="checkbox-2"> 
-                            <label for="checkbox-2" title="Toggle entertainment" class="checkbox-right"></label>
-                        </fieldset>
-                        <fieldset class="checkbox-switch">
-                            <legend class="legend-left">education</legend>
-                            <input type="checkbox" id="checkbox-3"> 
-                            <label for="checkbox-3" title="Toggle education" class="checkbox-right"></label>
-                        </fieldset>
-                        <fieldset class="checkbox-switch">
-                            <legend class="legend-left">fitness</legend>
-                            <input type="checkbox" id="checkbox-4"> 
-                            <label for="checkbox-4" title="Toggle fitness" class="checkbox-right"></label>
-                        </fieldset>
-                        <option value="" disabled="disabled">─────────────────────────</option>
-                        <h2>MEDIUMS</h2>
-                        <fieldset class="checkbox-switch">
-                            <legend class="legend-left">article</legend>
-                            <input type="checkbox" id="checkbox-5"> 
-                            <label for="checkbox-5" title="Toggle article" class="checkbox-right"></label>
-                        </fieldset>
-                        <fieldset class="checkbox-switch">
-                            <legend class="legend-left">video</legend>
-                            <input type="checkbox" id="checkbox-6"> 
-                            <label for="checkbox-6" title="Toggle fitness" class="checkbox-right"></label>
-                        </fieldset>
-                        <fieldset class="checkbox-switch">
-                            <legend class="legend-left">music</legend>
-                            <input type="checkbox" id="checkbox-6"> 
-                            <label for="checkbox-6" title="Toggle fitness" class="checkbox-right"></label>
-                        </fieldset>
-                    </div>
-                </div>
             </ul>
+            <div class="dropdown">
+                <button class="drpbtn">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </button>
+                <div class="dropdown-content">
+                    <h2>TOPICS</h2>
+                    <fieldset class="checkbox-switch">
+                        <legend class="legend-left">yoga</legend>
+                        <input type="checkbox" id="checkbox-1"> 
+                        <label for="checkbox-1" title="Toggle yoga" class="checkbox-right"></label>
+                    </fieldset>
+                    <fieldset class="checkbox-switch">
+                        <legend class="legend-left">entertainment</legend>
+                        <input type="checkbox" id="checkbox-2"> 
+                        <label for="checkbox-2" title="Toggle entertainment" class="checkbox-right"></label>
+                    </fieldset>
+                    <fieldset class="checkbox-switch">
+                        <legend class="legend-left">education</legend>
+                        <input type="checkbox" id="checkbox-3"> 
+                        <label for="checkbox-3" title="Toggle education" class="checkbox-right"></label>
+                    </fieldset>
+                    <fieldset class="checkbox-switch">
+                        <legend class="legend-left">fitness</legend>
+                        <input type="checkbox" id="checkbox-4"> 
+                        <label for="checkbox-4" title="Toggle fitness" class="checkbox-right"></label>
+                    </fieldset>
+                    <option value="" disabled="disabled">─────────────────────────</option>
+                    <h2>MEDIUMS</h2>
+                    <fieldset class="checkbox-switch">
+                        <legend class="legend-left">article</legend>
+                        <input type="checkbox" id="checkbox-5"> 
+                        <label for="checkbox-5" title="Toggle article" class="checkbox-right"></label>
+                    </fieldset>
+                    <fieldset class="checkbox-switch">
+                        <legend class="legend-left">video</legend>
+                        <input type="checkbox" id="checkbox-6"> 
+                        <label for="checkbox-6" title="Toggle fitness" class="checkbox-right"></label>
+                    </fieldset>
+                    <fieldset class="checkbox-switch">
+                        <legend class="legend-left">music</legend>
+                        <input type="checkbox" id="checkbox-7"> 
+                        <label for="checkbox-7" title="Toggle fitness" class="checkbox-right"></label>
+                    </fieldset>
+                    <button type="submit" id="save">save</button>
+                </div>
+            </div>
         </nav>
+        
         <div id="time"><p>time here</p></div>
         <div class="start">
             <button type="button" value="start">start</button>
