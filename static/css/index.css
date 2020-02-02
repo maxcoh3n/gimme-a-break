@@ -271,7 +271,7 @@ fieldset {
     transition-duration: 0.3s;
 }
 .about {
-    margin-top: 3rem;
+    margin-top: 1rem;
     width: 10rem;
     transition: all 0.5s;
 
@@ -311,4 +311,14 @@ fieldset {
 .container {
     background-color: #eeeeee;
     font-family: "McLaren", cursive;
+}
+
+#user_input {
+    padding: 12px 15px;
+    margin:20px 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    border-color: black;
+    border-radius: 10px;
+    font-size: 30px
 }
