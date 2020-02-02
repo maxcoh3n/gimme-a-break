@@ -12,6 +12,7 @@ const breakactivitiesRouter = require("./controllers/activitiesController");
 const usersRouter = require("./controllers/usersController");
 
 
+
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
@@ -38,5 +39,6 @@ app.use("/about", aboutRouter);
 app.use("/timer", timerRouter);
 app.use("/breakactivities", breakactivitiesRouter);
 app.use("/users", usersRouter);
+
 
 app.listen(3000, () => console.log("Server started on port 3000"));

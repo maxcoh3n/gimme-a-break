@@ -9,6 +9,7 @@
     width: 100%;
     display: flex;
     flex-direction: row;
+    border-radius: 10px;
 }
 
 .navbar a {
@@ -51,6 +52,7 @@
     margin-top: Spx;
     height: 4.32rem;
     padding: 0;
+    border-radius: 10px;
 }
 
 .dropdown {
@@ -181,4 +183,86 @@ fieldset {
     width: 5rem;
     height: 3rem;
     padding: 8px 16px;
+}
+
+article {
+    margin: 25px;
+}
+
+.features {
+    background: #2a4d69;
+    border-radius: 15px;
+    padding-left: 45px; 
+    padding-right: 45px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+h2 {
+    font-size: 55px;
+    margin-top: -10px;
+    color: white;
+}
+
+.description {
+    font-size: 25px;
+    color: white;
+    margin-top: -50px;
+    line-height: 50px;
+}
+
+.team_pic {
+    float: right;
+    height: 250px;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+article {
+    background: #2a4d69;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.contributors {
+    background: #0097ff;
+    padding-bottom: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 70px;
+}
+
+h2 {
+    font-size: 50px;
+}
+
+h3 {
+    text-align: left;
+    font-size: 2.3vw;
+}
+
+.pics {
+    border-radius: 50%;
+    width: 15vw;
+    height: 15vw;
+}
+
+.description {
+    font-size: 30px;
+}
+
+.grad-and-major {
+    font-size: 1.25vw;
+}
+
+.column {
+    float: right;
+    width: 25%;
 }
