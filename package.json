@@ -22,7 +22,7 @@
         "express-ejs-layouts": "^2.5.0",
         "mongoose": "^5.8.11",
         "nano": "^8.1.0",
-        "underscore": "^1.9.2"
+        "underscore": "^1.12.1"
     },
     "devDependencies": {
         "dotenv": "^8.2.0",
