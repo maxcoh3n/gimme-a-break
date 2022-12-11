@@ -18,7 +18,7 @@
     "homepage": "https://github.com/maxcoh3n/gimme-a-break#readme",
     "dependencies": {
         "ejs": "^3.0.1",
-        "express": "^4.17.1",
+        "express": "^4.17.3",
         "express-ejs-layouts": "^2.5.0",
         "mongoose": "^5.8.11",
         "nano": "^8.1.0",
